@@ -1,16 +1,14 @@
-const DEFAULTSTATE =
-    `
-    Header H1
-    Subheader H2
-    There's also [links](https://www.freecodecamp.com)
-    Here's some code, \`<div></div>\`,
-    A code block
-    list item
-    block quote
-    image
-    bolded text`;
+const codeblock = "Example Code:\n```\nfunction helpMe() {\n  help = 0\n  return help;\n}\n```\n";
+const DEFAULT = "# Header H1\n" +
+    "## Subheader H2\n" +
+    "There's also [links](https://www.freecodecamp.com)\n" +
+    "Here's some code, `<div></div>`,\n<br/>" +
+    codeblock +
+    "</code></pre>" +
+    "list item: \n" +
+    "1. item1\n" +
+    ">block quote\n<br/>" +
+    "image: ![React and Bootstrap](https://crowdcast-prod.imgix.net/-KHhIzuATU2K4OVPd2sP/event-cover-5388?w=800)\n" +
+    "**bolded text**";
 
-const ds = "Header H1\nSubheader H2\nThere's also [links](https://www.freecodecamp.com)\n" +
-    "Here's some code, `<div></div>`,\nA code block\nlist item\nblock quote\nimage\nbolded text"
-
-export default ds
+export default DEFAULT

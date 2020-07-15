@@ -1,13 +1,13 @@
 import React from 'react';
-import ds from './default-state'
+import marked from 'marked'
+import DEFAULT from "./default-state";
 
-//TODO get markdown parser to parse the string ds when we return it in the render also change the previewer class from p
-// to some sort of text box that's uneditable
+//TODO comment and make prettier
 class ControlledInput extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            input: ds
+            input: DEFAULT
         };
     }
 
@@ -23,12 +23,16 @@ class ControlledInput extends React.Component {
             <div className="container-fluid">
                 <div>
                     <div id={"editor-div"}>
-                        <h4 className={"text-primary"}>Editor:</h4>
-                        <textarea id="editor" value = {this.state.input} onChange={this.handleChange.bind(this)}/>
+                        <h4 className={"text-primary text-center"}>Editor:</h4>
+                        <div className={"d-flex justify-content-center"}>
+                            <textarea cols="150" rows="10" id="editor" value = {this.state.input} onChange={this.handleChange.bind(this)}/>
+                        </div>
                     </div>
-                    <div id={"previewer-div"}>
-                        <h4 className="text-primary">Previewer:</h4>
-                        <p>{this.state.input}</p>
+                    <div id={"preview-div"}>
+                        <h4 className="text-primary text-center">Previewer:</h4>
+                        <div className={"d-flex justify-content-center"}>
+                            <div id="preview" className={"border"} dangerouslySetInnerHTML={{__html:unescape(marked(this.state.input))}}></div>
+                        </div>
                     </div>
                 </div>
             </div>
